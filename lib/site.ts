@@ -13,9 +13,7 @@ export const company = {
   address: [
     "213 & 214, 2nd Floor,",
     "Welldone Tech Park,",
-    "Gurgaon, Sadar Bazar,",
-    "Gurgaon - 122001,",
-    "Haryana, India",
+    "Gurugram, Haryana 122001",
   ],
 } as const;
 

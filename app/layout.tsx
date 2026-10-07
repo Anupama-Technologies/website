@@ -54,8 +54,8 @@ const organizationJsonLd = {
   email: company.email,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "213 & 214, 2nd Floor, Welldone Tech Park, Sadar Bazar",
-    addressLocality: "Gurgaon",
+    streetAddress: "213 & 214, 2nd Floor, Welldone Tech Park",
+    addressLocality: "Gurugram",
     addressRegion: "Haryana",
     postalCode: "122001",
     addressCountry: "IN",
