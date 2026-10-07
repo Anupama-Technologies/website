@@ -54,10 +54,10 @@ const organizationJsonLd = {
   email: company.email,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Unit 02-004, 2nd Floor, Emaar The Palm Square, Sector 66, Golf Course Road Extension, Bhondsi",
+    streetAddress: "213 & 214, 2nd Floor, Welldone Tech Park, Sadar Bazar",
     addressLocality: "Gurgaon",
     addressRegion: "Haryana",
-    postalCode: "122102",
+    postalCode: "122001",
     addressCountry: "IN",
   },
 };

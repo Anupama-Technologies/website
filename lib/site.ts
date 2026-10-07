@@ -11,11 +11,11 @@ export const company = {
   description:
     "Anupama Technologies builds thoughtful digital products that bring people, technology and real-world experiences together.",
   address: [
-    "Unit 02-004, 2nd Floor,",
-    "Emaar The Palm Square,",
-    "Sector 66, Golf Course Road Extension,",
-    "Bhondsi, Gurgaon,",
-    "Haryana, India, 122102",
+    "213 & 214, 2nd Floor,",
+    "Welldone Tech Park,",
+    "Gurgaon, Sadar Bazar,",
+    "Gurgaon - 122001,",
+    "Haryana, India",
   ],
 } as const;
 
