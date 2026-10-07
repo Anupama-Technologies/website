@@ -1,69 +1,123 @@
-import Image from "next/image";
+import { Box, Cpu, Sparkles } from "lucide-react";
+import { Button } from "@/components/button";
+import { Container } from "@/components/container";
+import { HeroVisual } from "@/components/hero-visual";
+import { ProductCard } from "@/components/product-card";
+import { SectionHeading } from "@/components/section-heading";
+import { carnival, company } from "@/lib/site";
 
-export default function Home() {
+const pillars = [
+  {
+    icon: Box,
+    title: "Product",
+    text: "Consumer products designed around meaningful user experiences.",
+  },
+  {
+    icon: Cpu,
+    title: "Technology",
+    text: "Modern software built with thoughtful engineering and product design.",
+  },
+  {
+    icon: Sparkles,
+    title: "Experiences",
+    text: "Digital experiences that are simple, engaging and intuitive.",
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+    <>
+      <section className="relative overflow-hidden">
+        <div aria-hidden="true" className="absolute -left-40 top-0 size-[40rem] rounded-full bg-accent/10 blur-3xl" />
+        <Container className="relative grid items-center gap-14 pb-20 pt-32 sm:pt-40 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8 lg:pb-28">
+          <div>
+            <p className="animate-rise mb-6 font-mono text-xs uppercase tracking-[0.2em] text-muted">
+              Anupama Technologies · Gurgaon, India
+            </p>
+            <h1 className="animate-rise text-balance text-[2.6rem] font-semibold leading-[1.04] tracking-tight [animation-delay:80ms] sm:text-6xl lg:text-7xl">
+              Building technology products <span className="accent-text">people love to use.</span>
+            </h1>
+            <p className="animate-rise mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted [animation-delay:160ms] sm:text-xl">
+              {company.description}
+            </p>
+            <div className="animate-rise mt-10 flex flex-col gap-3 [animation-delay:240ms] sm:flex-row">
+              {carnival.url && <Button href={carnival.url}>Explore Carnival</Button>}
+              <Button href="/about" variant={carnival.url ? "secondary" : "primary"}>
+                About us
+              </Button>
+            </div>
+          </div>
+          <div className="animate-rise [animation-delay:200ms]">
+            <HeroVisual />
+          </div>
+        </Container>
+      </section>
+
+      <section id="carnival" className="border-t border-line bg-raised py-20 sm:py-28">
+        <Container>
+          <div className="reveal mb-12 sm:mb-16">
+            <SectionHeading index="01" eyebrow="Current flagship" title="Meet Carnival.">
+              Carnival is a social dating experience designed to make meeting people feel spontaneous,
+              engaging and fun.
+            </SectionHeading>
+          </div>
+          <div className="reveal">
+            <ProductCard
+              tagline="Social dating, reimagined."
+              description="Carnival is built and operated by Anupama Technologies."
+              cta={carnival.host ? `Visit ${carnival.host}` : undefined}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-20 sm:py-28">
+        <Container className="grid gap-10 lg:grid-cols-12">
+          <div className="reveal lg:col-span-7">
+            <SectionHeading index="02" eyebrow="Philosophy" title="Technology should feel human." />
+          </div>
+          <p className="reveal text-pretty text-lg leading-relaxed text-muted lg:col-span-5 lg:pt-14">
+            We focus on creating products around real human experiences rather than technology for
+            technology&rsquo;s sake. Good software should make time with people feel easier, not more
+            complicated.
+          </p>
+        </Container>
+      </section>
+
+      <section className="border-t border-line py-20 sm:py-28">
+        <Container>
+          <div className="reveal">
+            <SectionHeading index="03" eyebrow="What we build" title="Products, technology and experiences." />
+          </div>
+          <ul className="mt-12 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:mt-16 md:grid-cols-3">
+            {pillars.map(({ icon: Icon, title, text }) => (
+              <li key={title} className="reveal group bg-base p-7 transition-colors duration-300 hover:bg-card sm:p-9">
+                <Icon aria-hidden="true" className="size-6 text-accent" strokeWidth={1.5} />
+                <h3 className="mt-10 text-xl font-semibold tracking-tight">{title}</h3>
+                <p className="mt-3 text-pretty leading-relaxed text-muted">{text}</p>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      <section className="relative overflow-hidden border-t border-line bg-raised py-24 sm:py-32">
+        <div aria-hidden="true" className="grid-bg absolute inset-0 opacity-50" />
+        <div aria-hidden="true" className="absolute left-1/2 top-1/2 size-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-2/15 blur-3xl" />
+        <Container className="reveal relative text-center">
+          <h2 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
+            Building what&rsquo;s next.
+          </h2>
+          <p className="mx-auto mt-5 max-w-md text-lg text-muted">
+            Explore what we&rsquo;re building at Anupama Technologies.
+          </p>
+          {carnival.url && (
+            <div className="mt-10 flex justify-center">
+              <Button href={carnival.url}>Explore Carnival</Button>
+            </div>
+          )}
+        </Container>
+      </section>
+    </>
   );
 }
